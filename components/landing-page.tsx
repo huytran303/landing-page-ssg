@@ -155,7 +155,7 @@ export default function EnhancedLandingPageComponent() {
                 >
                   <div className="relative h-64 md:h-96">
                     <Image
-                      src="/team.jpg"
+                      src="/placeholder.svg?height=384&width=384"
                       alt="FUOJ Illustration"
                       layout="fill"
                       objectFit="contain"
@@ -181,23 +181,35 @@ export default function EnhancedLandingPageComponent() {
               <h2 className="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
                 About Us
               </h2>
-              <div className="flex flex-col md:flex-row items-center">
-                <div className="md:w-1/2 mb-10 md:mb-0">
-                  <p className="text-lg mb-4 text-gray-300">
-                    At theseven++, we&apos;re passionate about creating innovative solutions that revolutionize the way developers work.
+              <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12">
+                <div className="lg:w-1/2">
+                  <p className="text-lg mb-6 text-gray-300">
+                    At FUOJ, we are driven by the vision of becoming the leading platform for programming skill learning and assessment at FPT University. Our goal is to create an effective and innovative learning environment that empowers students and supports educators.
                   </p>
+                  <p className="text-lg mb-6 text-gray-300">
+                    Our mission is threefold:
+                  </p>
+                  <ul className="list-disc list-inside text-lg mb-6 text-gray-300">
+                    <li>Provide rapid and accurate automated grading tools for programming assignments.</li>
+                    <li>Foster students' programming mindset through regular hands-on practice.</li>
+                    <li>Offer educators an efficient and user-friendly system for managing and grading assignments.</li>
+                  </ul>
                   <p className="text-lg text-gray-300">
-                    Our mission is to empower coders with tools that enhance productivity and foster creativity.
+                    By focusing on these key areas, we aim to revolutionize the way programming is taught and learned at FPT University, preparing students for successful careers in the ever-evolving world of technology.
                   </p>
                 </div>
-                <div className="md:w-1/2">
-                  <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}>
+                <div className="lg:w-1/2">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="rounded-lg overflow-hidden shadow-2xl"
+                  >
                     <Image
-                      src="/team.jpg"
+                      src="/placeholder.svg?height=400&width=600"
                       alt="Our Vision"
                       width={600}
-                      height={450}
-                      className="rounded-lg shadow-2xl"
+                      height={400}
+                      className="w-full h-auto"
                     />
                   </motion.div>
                 </div>
@@ -212,16 +224,16 @@ export default function EnhancedLandingPageComponent() {
               <h2 className="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
                 Our Team
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {[
-                  { name: 'Alice Johnson', role: 'Founder & CEO', image: '/team.jpg' },
-                  { name: 'Bob Smith', role: 'Lead Developer', image: '/team.jpg' },
-                  { name: 'Carol Williams', role: 'UX Designer', image: '/team.jpg' },
-                  { name: 'David Brown', role: 'Backend Engineer', image: '/team.jpg' },
-                  { name: 'Eva Martinez', role: 'Frontend Developer', image: '/team.jpg' },
-                  { name: 'Frank Lee', role: 'DevOps Specialist', image: '/team.jpg' },
-                  { name: 'Grace Kim', role: 'Product Manager', image: '/team.jpg' },
-                  { name: 'Henry Nguyen', role: 'QA Engineer', image: '/team.jpg' },
+                  { name: 'Alice Johnson', role: 'Founder & CEO', image: '/placeholder.svg?height=200&width=200' },
+                  { name: 'Bob Smith', role: 'Lead Developer', image: '/placeholder.svg?height=200&width=200' },
+                  { name: 'Carol Williams', role: 'UX Designer', image: '/placeholder.svg?height=200&width=200' },
+                  { name: 'David Brown', role: 'Backend Engineer', image: '/placeholder.svg?height=200&width=200' },
+                  { name: 'Eva Martinez', role: 'Frontend Developer', image: '/placeholder.svg?height=200&width=200' },
+                  { name: 'Frank Lee', role: 'DevOps Specialist', image: '/placeholder.svg?height=200&width=200' },
+                  { name: 'Grace Kim', role: 'Product Manager', image: '/placeholder.svg?height=200&width=200' },
+                  { name: 'Henry Nguyen', role: 'QA Engineer', image: '/placeholder.svg?height=200&width=200' },
                 ].map((member, index) => (
                   <motion.div
                     key={index}
@@ -252,7 +264,7 @@ export default function EnhancedLandingPageComponent() {
               <h2 className="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
                 Features
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {[
                   { icon: <Code className="h-12 w-12 mb-4 text-blue-400" />, title: 'Smart Coding', description: 'AI-powered code suggestions and auto-completion.' },
                   { icon: <Zap className="h-12 w-12 mb-4 text-blue-400" />, title: 'Lightning Fast', description: 'Optimized performance for seamless development.' },
