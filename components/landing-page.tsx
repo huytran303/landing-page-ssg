@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, useAnimation, AnimatePresence } from 'framer-motion'
+import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -184,7 +184,7 @@ export default function EnhancedLandingPageComponent() {
               <div className="flex flex-col md:flex-row items-center">
                 <div className="md:w-1/2 mb-10 md:mb-0">
                   <p className="text-lg mb-4 text-gray-300">
-                    At theseven++, we're passionate about creating innovative solutions that revolutionize the way developers work.
+                    At theseven++, we&apos;re passionate about creating innovative solutions that revolutionize the way developers work.
                   </p>
                   <p className="text-lg text-gray-300">
                     Our mission is to empower coders with tools that enhance productivity and foster creativity.
