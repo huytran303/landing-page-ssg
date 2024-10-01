@@ -191,7 +191,7 @@ export default function EnhancedLandingPageComponent() {
                   </p>
                   <ul className="list-disc list-inside text-lg mb-6 text-gray-300">
                     <li>Provide rapid and accurate automated grading tools for programming assignments.</li>
-                    <li>Foster students' programming mindset through regular hands-on practice.</li>
+                    <li>Foster student&apos; programming mindset through regular hands-on practice.</li>
                     <li>Offer educators an efficient and user-friendly system for managing and grading assignments.</li>
                   </ul>
                   <p className="text-lg text-gray-300">
