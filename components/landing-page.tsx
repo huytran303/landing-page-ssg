@@ -205,7 +205,7 @@ export default function EnhancedLandingPageComponent() {
                     className="rounded-lg overflow-hidden shadow-2xl"
                   >
                     <Image
-                      src="/placeholder.svg?height=400&width=600"
+                      src="/team.jpg"
                       alt="Our Vision"
                       width={600}
                       height={400}
