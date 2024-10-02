@@ -6,7 +6,6 @@ import { useInView } from 'react-intersection-observer'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
 import { PlusSquare, ChevronDown, Facebook, Mail, Menu, X } from 'lucide-react'
 import { EnhancedFeaturesSectionComponent } from './enhanced-features-section'
 import EnhancedTeamSection from './enhanced-team-section'
