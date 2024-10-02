@@ -21,7 +21,7 @@ const slideIn = {
 
 const zoomIn = {
   hidden: { scale: 0.8, opacity: 0 },
-  visible: { scale: 1, opacity: 1, transition: { duration: 0.8 } }
+  visible: { scale: 1, opacity: 1, transition: { duration: 0.5 } }
 }
 
 interface AnimatedSectionProps {
@@ -148,18 +148,17 @@ export default function EnhancedLandingPageComponent() {
                   </motion.div>
                 </motion.div>
                 <motion.div
-                  className="md:w-1/2"
+                  className="w-full md:w-1/2"
                   initial="hidden"
                   animate="visible"
                   variants={zoomIn}
                 >
-                  <div className="relative h-64 md:h-96">
+                  <div className="relative aspect-video">
                     <Image
                       src="/sanpham.png"
                       alt="FUOJ Illustration"
-                      layout="fill"
-                      objectFit="contain"
-                      className="rounded-lg shadow-2xl"
+                      fill
+                      className="rounded-lg shadow-2xl object-cover"
                     />
                   </div>
                 </motion.div>
