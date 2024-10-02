@@ -1,13 +1,13 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { PlusSquare, Code, Zap, Users, Globe, Shield, Puzzle, Smartphone, ChevronDown, Facebook, Mail } from 'lucide-react'
+import { PlusSquare, Code, Zap, Users, Globe, Shield, Puzzle, Smartphone, ChevronDown, Facebook, Mail, Menu, X } from 'lucide-react'
 
 const fadeIn = {
   hidden: { opacity: 0 },
@@ -77,8 +77,10 @@ const AnimatedText = ({ text }: AnimatedTextProps) => {
   )
 }
 
-export default function EnhancedLandingPageComponent() {
+export default function EnhancedMobileFriendlyLandingPageComponent() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const aboutUsRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -92,6 +94,13 @@ export default function EnhancedLandingPageComponent() {
     const section = document.getElementById(sectionId)
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' })
+    }
+    setIsMenuOpen(false)
+  }
+
+  const scrollToNextSection = () => {
+    if (aboutUsRef.current) {
+      aboutUsRef.current.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
@@ -118,31 +127,67 @@ export default function EnhancedLandingPageComponent() {
               </motion.button>
             ))}
           </nav>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+          <div className="md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
+          <Button className="hidden md:inline-flex bg-blue-600 hover:bg-blue-700 text-white">
             Try Now
           </Button>
         </div>
       </header>
 
-      <main>
+      {isMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="fixed inset-x-0 top-16 bg-gray-900 shadow-lg p-4 md:hidden z-40"
+        >
+          <nav className="flex flex-col space-y-4">
+            {['home', 'about-us', 'team', 'features', 'contact'].map((item) => (
+              <motion.button
+                key={item}
+                onClick={() => scrollToSection(item)}
+                className="text-sm hover:text-blue-400 transition-colors py-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {item.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+              </motion.button>
+            ))}
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full">
+              Try Now
+            </Button>
+          </nav>
+        </motion.div>
+      )}
+
+      <main className="pt-16">
         <AnimatedSection id="home">
-          <section className="pt-32 pb-20 relative overflow-hidden">
+          <section className="py-20 relative overflow-hidden">
             <div className="container mx-auto px-4">
               <div className="flex flex-col md:flex-row items-center">
                 <motion.div
-                  className="md:w-1/2 mb-10 md:mb-0"
+                  className="w-full md:w-1/2 mb-10 md:mb-0"
                   initial="hidden"
                   animate="visible"
                   variants={slideIn}
                 >
-                  <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+                  <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
                     Welcome to FUOJ
                   </h1>
-                  <p className="text-xl mb-8 text-gray-300">
+                  <p className="text-lg md:text-xl mb-8 text-gray-300">
                     Empowering developers with cutting-edge tools for seamless coding experiences.
                   </p>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+                    <Button className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
                       Get Started
                     </Button>
                   </motion.div>
@@ -164,36 +209,38 @@ export default function EnhancedLandingPageComponent() {
                 </motion.div>
               </div>
             </div>
-            <motion.div
-              className="absolute bottom-4 left-1/2 transform -translate-x-1/2"
+            <motion.button
+              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-500 hover:bg-blue-600 text-white rounded-full p-2 shadow-lg"
               animate={{ y: [0, 10, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
+              onClick={scrollToNextSection}
+              aria-label="Scroll to next section"
             >
-              <ChevronDown className="w-8 h-8 text-blue-400" />
-            </motion.div>
+              <ChevronDown className="w-8 h-8" />
+            </motion.button>
           </section>
         </AnimatedSection>
 
         <AnimatedSection id="about-us">
-          <section className="py-20 bg-gray-800 bg-opacity-50">
+          <section ref={aboutUsRef} className="py-20 bg-gray-800 bg-opacity-50">
             <div className="container mx-auto px-4">
-              <h2 className="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+              <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
                 About Us
               </h2>
               <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12">
                 <div className="lg:w-1/2">
-                  <p className="text-lg mb-6 text-gray-300">
+                  <p className="text-base md:text-lg mb-6 text-gray-300">
                     At FUOJ, we are driven by the vision of becoming the leading platform for programming skill learning and assessment at FPT University. Our goal is to create an effective and innovative learning environment that empowers students and supports educators.
                   </p>
-                  <p className="text-lg mb-6 text-gray-300">
+                  <p className="text-base md:text-lg mb-6 text-gray-300">
                     Our mission is threefold:
                   </p>
-                  <ul className="list-disc list-inside text-lg mb-6 text-gray-300">
+                  <ul className="list-disc list-inside text-base md:text-lg mb-6 text-gray-300">
                     <li>Provide rapid and accurate automated grading tools for programming assignments.</li>
-                    <li>Foster student&apos; programming mindset through regular hands-on practice.</li>
+                    <li>Foster student&apos;s programming mindset through regular hands-on practice.</li>
                     <li>Offer educators an efficient and user-friendly system for managing and grading assignments.</li>
                   </ul>
-                  <p className="text-lg text-gray-300">
+                  <p className="text-base md:text-lg text-gray-300">
                     By focusing on these key areas, we aim to revolutionize the way programming is taught and learned at FPT University, preparing students for successful careers in the ever-evolving world of technology.
                   </p>
                 </div>
@@ -220,12 +267,11 @@ export default function EnhancedLandingPageComponent() {
         <AnimatedSection id="team">
           <section className="py-20">
             <div className="container mx-auto px-4">
-              <h2 className="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+              <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
                 Our Team
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
                 {[
-                  // 200x200 images
                   { name: 'Nguyen Tuan Vu', role: 'Leader', image: '/tuanvu.jpg' },
                   { name: 'Nguyen Dinh Phong', role: 'Developer Team', image: '/dinhphong.jpg' },
                   { name: 'Nguyen Thanh Tung', role: 'Developer Team', image: '/tung.jpg' },
@@ -240,16 +286,17 @@ export default function EnhancedLandingPageComponent() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <Card className="p-6 text-center bg-gray-800 bg-opacity-50 border-2 border-blue-400 hover:border-purple-500 transition-colors duration-300">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        width={200}
-                        height={200}
-                        className="rounded-full mx-auto mb-4 border-4 border-blue-400"
-                      />
-                      <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
-                      <p className="text-gray-400">{member.role}</p>
+                    <Card className="p-3 md:p-6 text-center bg-gray-800 bg-opacity-50 border-2 border-blue-400 hover:border-purple-500 transition-colors duration-300">
+                      <div className="relative w-24 h-24 md:w-32 md:h-32 mx-auto mb-2 md:mb-4">
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          fill
+                          className="rounded-full object-cover border-4 border-blue-400"
+                        />
+                      </div>
+                      <h3 className="text-sm md:text-lg font-semibold mb-1">{member.name}</h3>
+                      <p className="text-xs md:text-sm text-gray-400">{member.role}</p>
                     </Card>
                   </motion.div>
                 ))}
@@ -261,10 +308,10 @@ export default function EnhancedLandingPageComponent() {
         <AnimatedSection id="features">
           <section className="py-20 bg-gray-800 bg-opacity-50">
             <div className="container mx-auto px-4">
-              <h2 className="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+              <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
                 Features
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {[
                   { icon: <Code className="h-12 w-12 mb-4 text-blue-400" />, title: 'Smart Coding', description: 'AI-powered code suggestions and auto-completion.' },
                   { icon: <Zap className="h-12 w-12 mb-4 text-blue-400" />, title: 'Lightning Fast', description: 'Optimized performance for seamless development.' },
@@ -281,8 +328,8 @@ export default function EnhancedLandingPageComponent() {
                       transition={{ type: "spring", stiffness: 300 }}
                     >
                       {feature.icon}
-                      <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                      <p className="text-gray-300">{feature.description}</p>
+                      <h3 className="text-lg md:text-xl font-semibold mb-2">{feature.title}</h3>
+                      <p className="text-sm md:text-base text-gray-300">{feature.description}</p>
                     </motion.div>
                   </Card>
                 ))}
@@ -294,10 +341,10 @@ export default function EnhancedLandingPageComponent() {
         <AnimatedSection id="contact">
           <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
             <div className="container mx-auto px-4 text-center">
-              <h2 className="text-5xl font-bold mb-6">Ready to elevate your coding experience?</h2>
-              <p className="text-xl mb-8">Join thousands of developers who trust FUOJ for their projects.</p>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to elevate your coding experience?</h2>
+              <p className="text-lg md:text-xl mb-8">Join thousands of developers who trust FUOJ for their projects.</p>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+                <Button className="w-full sm:w-auto bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
                   Get Started Now
                 </Button>
               </motion.div>
