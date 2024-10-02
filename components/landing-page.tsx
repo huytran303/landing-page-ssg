@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { PlusSquare, ChevronDown, Facebook, Mail, Menu, X } from 'lucide-react'
 import { EnhancedFeaturesSectionComponent } from './enhanced-features-section'
+import EnhancedTeamSection from './enhanced-team-section'
 const fadeIn = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { duration: 0.8 } }
@@ -267,44 +268,7 @@ export default function EnhancedMobileFriendlyLandingPageComponent() {
         </AnimatedSection>
 
         <AnimatedSection id="team">
-          <section className="py-20">
-            <div className="container mx-auto px-4">
-              <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-                Our Team
-              </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
-                {[
-                  { name: 'Nguyen Tuan Vu', role: 'Leader', image: '/tuanvu.jpg' },
-                  { name: 'Nguyen Dinh Phong', role: 'Developer Team', image: '/dinhphong.jpg' },
-                  { name: 'Nguyen Thanh Tung', role: 'Developer Team', image: '/tung.jpg' },
-                  { name: 'Tran Ngoc Huy', role: 'Sub Leader', image: '/ngochuy.jpg' },
-                  { name: 'Nguyen Chien Nguyen', role: 'Business Team', image: '/chiennguyen.jpg' },
-                  { name: 'Doan Cong Huy', role: 'Business Team', image: '/conghuy.jpg' },
-                  { name: 'Nguyen Xuan Kien', role: 'Business Team', image: '/kien.jpg' },
-                  { name: 'Khuat Dung An', role: 'Business Team', image: '/dungan.jpg' },
-                ].map((member, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <Card className="p-3 md:p-6 text-center bg-gray-800 bg-opacity-50 border-2 border-blue-400 hover:border-purple-500 transition-colors duration-300">
-                      <div className="relative w-24 h-24 md:w-32 md:h-32 mx-auto mb-2 md:mb-4">
-                        <Image
-                          src={member.image}
-                          alt={member.name}
-                          fill
-                          className="rounded-full object-cover border-4 border-blue-400"
-                        />
-                      </div>
-                      <h3 className="text-sm md:text-lg font-semibold mb-1">{member.name}</h3>
-                      <p className="text-xs md:text-sm text-gray-400">{member.role}</p>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </section>
+          <EnhancedTeamSection />
         </AnimatedSection>
 
         <AnimatedSection id="features">
