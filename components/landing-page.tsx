@@ -7,8 +7,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { PlusSquare, Code, Zap, Users, Globe, Shield, Puzzle, Smartphone, ChevronDown, Facebook, Mail, Menu, X, Book } from 'lucide-react'
-
+import { PlusSquare, Zap, Users, Puzzle, ChevronDown, Facebook, Mail, Menu, X, Book } from 'lucide-react'
+import { EnhancedFeaturesSectionComponent } from './enhanced-features-section'
 const fadeIn = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { duration: 0.8 } }
@@ -209,15 +209,17 @@ export default function EnhancedMobileFriendlyLandingPageComponent() {
                 </motion.div>
               </div>
             </div>
-            <motion.button
-              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-500 hover:bg-blue-600 text-white rounded-full p-2 shadow-lg"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
-              onClick={scrollToNextSection}
-              aria-label="Scroll to next section"
-            >
-              <ChevronDown className="w-8 h-8" />
-            </motion.button>
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center">
+              <motion.button
+                className="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-2 shadow-lg"
+                animate={{ y: [0, 10, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5 }}
+                onClick={scrollToNextSection}
+                aria-label="Scroll to next section"
+              >
+                <ChevronDown className="w-8 h-8" />
+              </motion.button>
+            </div>
           </section>
         </AnimatedSection>
 
@@ -305,81 +307,8 @@ export default function EnhancedMobileFriendlyLandingPageComponent() {
           </section>
         </AnimatedSection>
 
-        {/* <AnimatedSection id="features">
-          <section className="py-20 bg-gray-800 bg-opacity-50">
-            <div className="container mx-auto px-4">
-              <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-                Features
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                {[
-                  { icon: <Code className="h-12 w-12 mb-4 text-blue-400" />, title: 'Smart Coding', description: 'AI-powered code suggestions and auto-completion.' },
-                  { icon: <Zap className="h-12 w-12 mb-4 text-blue-400" />, title: 'Lightning Fast', description: 'Optimized performance for seamless development.' },
-                  { icon: <Users className="h-12 w-12 mb-4 text-blue-400" />, title: 'Collaboration', description: 'Real-time collaboration tools for team projects.' },
-                  { icon: <Globe className="h-12 w-12 mb-4 text-blue-400" />, title: 'Cross-Platform', description: 'Work seamlessly across different devices and operating systems.' },
-                  { icon: <Shield className="h-12 w-12 mb-4 text-blue-400" />, title: 'Secure', description: 'Advanced security measures to protect your code and data.' },
-                  { icon: <Puzzle className="h-12 w-12 mb-4 text-blue-400" />, title: 'Extensible', description: 'Easily extend functionality with a robust plugin system.' },
-                  { icon: <Smartphone className="h-12 w-12 mb-4 text-blue-400" />, title: 'Mobile-Friendly', description: 'Access your projects on-the-go with our mobile app.' },
-                  { icon: <Code className="h-12 w-12 mb-4 text-blue-400" />, title: 'Multi-Language', description: 'Support for a wide range of programming languages and frameworks.' },
-                ].map((feature, index) => (
-                  <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 bg-gray-900 bg-opacity-50 border-2 border-blue-400 hover:border-purple-500">
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    >
-                      {feature.icon}
-                      <h3 className="text-lg md:text-xl font-semibold mb-2">{feature.title}</h3>
-                      <p className="text-sm md:text-base text-gray-300">{feature.description}</p>
-                    </motion.div>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </section>
-        </AnimatedSection> */}
         <AnimatedSection id="features">
-          <section className="py-20 bg-gray-800 bg-opacity-50">
-            <div className="container mx-auto px-4">
-              <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-                Key Features
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                {[
-                  {
-                    icon: <Puzzle className="h-12 w-12 mb-4 text-blue-400" />,
-                    title: 'Diverse Problem Set',
-                    description: 'Explore a wide range of coding challenges across various difficulty levels and topics, designed to enhance your problem-solving skills.'
-                  },
-                  {
-                    icon: <Zap className="h-12 w-12 mb-4 text-blue-400" />,
-                    title: 'Real-time Feedback',
-                    description: 'Receive instant feedback on your code submissions, helping you identify and correct errors quickly for a more efficient learning experience.'
-                  },
-                  {
-                    icon: <Users className="h-12 w-12 mb-4 text-blue-400" />,
-                    title: 'Competitive Contests',
-                    description: 'Participate in exciting coding competitions to challenge yourself, compete with peers, and improve your skills in a fun, engaging environment.'
-                  },
-                  {
-                    icon: <Book className="h-12 w-12 mb-4 text-blue-400" />,
-                    title: 'Learning Resources',
-                    description: 'Access a comprehensive library of tutorials, articles, and video lessons to support your learning journey and master new programming concepts.'
-                  },
-                ].map((feature, index) => (
-                  <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 bg-gray-900 bg-opacity-50 border-2 border-blue-400 hover:border-purple-500">
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    >
-                      {feature.icon}
-                      <h3 className="text-lg md:text-xl font-semibold mb-2">{feature.title}</h3>
-                      <p className="text-sm md:text-base text-gray-300">{feature.description}</p>
-                    </motion.div>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </section>
+          <EnhancedFeaturesSectionComponent />
         </AnimatedSection>
 
         <AnimatedSection id="contact">
