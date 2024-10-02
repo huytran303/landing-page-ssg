@@ -155,7 +155,7 @@ export default function EnhancedLandingPageComponent() {
                 >
                   <div className="relative h-64 md:h-96">
                     <Image
-                      src="/placeholder.svg?height=384&width=384"
+                      src="/sanpham.png"
                       alt="FUOJ Illustration"
                       layout="fill"
                       objectFit="contain"
@@ -226,14 +226,15 @@ export default function EnhancedLandingPageComponent() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {[
-                  { name: 'Alice Johnson', role: 'Founder & CEO', image: '/placeholder.svg?height=200&width=200' },
-                  { name: 'Bob Smith', role: 'Lead Developer', image: '/placeholder.svg?height=200&width=200' },
-                  { name: 'Carol Williams', role: 'UX Designer', image: '/placeholder.svg?height=200&width=200' },
-                  { name: 'David Brown', role: 'Backend Engineer', image: '/placeholder.svg?height=200&width=200' },
-                  { name: 'Eva Martinez', role: 'Frontend Developer', image: '/placeholder.svg?height=200&width=200' },
-                  { name: 'Frank Lee', role: 'DevOps Specialist', image: '/placeholder.svg?height=200&width=200' },
-                  { name: 'Grace Kim', role: 'Product Manager', image: '/placeholder.svg?height=200&width=200' },
-                  { name: 'Henry Nguyen', role: 'QA Engineer', image: '/placeholder.svg?height=200&width=200' },
+                  // 200x200 images
+                  { name: 'Nguyen Tuan Vu', role: 'Leader', image: '/tuanvu.jpg' },
+                  { name: 'Nguyen Dinh Phong', role: 'Developer Team', image: '/dinhphong.jpg' },
+                  { name: 'Nguyen Thanh Tung', role: 'Developer Team', image: '/tung.jpg' },
+                  { name: 'Tran Ngoc Huy', role: 'Sub Leader', image: '/ngochuy.jpg' },
+                  { name: 'Nguyen Chien Nguyen', role: 'Business Team', image: '/chiennguyen.jpg' },
+                  { name: 'Doan Cong Huy', role: 'Business Team', image: '/conghuy.jpg' },
+                  { name: 'Nguyen Xuan Kien', role: 'Business Team', image: '/kien.jpg' },
+                  { name: 'Khuat Dung An', role: 'Business Team', image: '/dungan.jpg' },
                 ].map((member, index) => (
                   <motion.div
                     key={index}
