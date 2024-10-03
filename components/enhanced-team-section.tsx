@@ -9,10 +9,10 @@ const teamMembers = [
   { name: 'Nguyen Dinh Phong', role: 'Developer Team', image: '/dinhphong.jpg' },
   { name: 'Nguyen Thanh Tung', role: 'Developer Team', image: '/tung.jpg' },
   { name: 'Tran Ngoc Huy', role: 'Sub Leader', image: '/ngochuy.jpg' },
+  { name: 'Khuat Dung An', role: 'Business Team', image: '/dungan.jpg' },
   { name: 'Nguyen Chien Nguyen', role: 'Business Team', image: '/chiennguyen.jpg' },
   { name: 'Doan Cong Huy', role: 'Business Team', image: '/conghuy.jpg' },
   { name: 'Nguyen Xuan Kien', role: 'Business Team', image: '/kien.jpg' },
-  { name: 'Khuat Dung An', role: 'Business Team', image: '/dungan.jpg' },
 ]
 
 interface MemberCardProps {
