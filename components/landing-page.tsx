@@ -200,7 +200,7 @@ export default function EnhancedMobileFriendlyLandingPageComponent() {
                 >
                   <div className="relative aspect-video">
                     <Image
-                      src="/sanpham.png"
+                      src="/FUOJ.png"
                       alt="FUOJ Illustration"
                       fill
                       className="rounded-lg shadow-2xl object-cover"
