@@ -37,7 +37,13 @@ const MemberCard = ({ name, role, image }: MemberCardProps) => (
         />
       </div>
       <div>
-        <h3 className="text-sm md:text-lg font-semibold mb-1">{name}</h3>
+        <motion.h3
+          className="text-sm md:text-lg font-bold mb-1 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text"
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 400 }}
+        >
+          {name}
+        </motion.h3>
         <p className="text-xs md:text-sm text-gray-400">{role}</p>
       </div>
     </Card>
