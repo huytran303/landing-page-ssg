@@ -188,7 +188,7 @@ export default function EnhancedMobileFriendlyLandingPageComponent() {
                   </p>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Button className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
-                      Get Started
+                      Coming Soon
                     </Button>
                   </motion.div>
                 </motion.div>
@@ -281,7 +281,7 @@ export default function EnhancedMobileFriendlyLandingPageComponent() {
               <p className="text-lg md:text-xl mb-8">Join thousands of developers who trust FUOJ for their projects.</p>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button className="w-full sm:w-auto bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
-                  Get Started Now
+                  Coming Soon
                 </Button>
               </motion.div>
             </div>
@@ -299,7 +299,7 @@ export default function EnhancedMobileFriendlyLandingPageComponent() {
               </Link>
             </div>
             <div className="flex space-x-4">
-              <Link href="https://www.facebook.com/" className="hover:text-blue-400 transition-colors">
+              <Link href="https://www.facebook.com/profile.php?id=61566392623284" className="hover:text-blue-400 transition-colors">
                 <Facebook className="h-6 w-6" />
               </Link>
               <Link href="mailto:thesevenplusplus@gmail.com" className="hover:text-blue-400 transition-colors">
