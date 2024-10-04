@@ -138,7 +138,7 @@ export default function EnhancedMobileFriendlyLandingPageComponent() {
             </Button>
           </div>
           <Button className="hidden md:inline-flex bg-blue-600 hover:bg-blue-700 text-white">
-            Try Now
+            Coming Soon
           </Button>
         </div>
       </header>
