@@ -137,8 +137,11 @@ export default function EnhancedMobileFriendlyLandingPageComponent() {
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
-          <Button className="hidden md:inline-flex bg-blue-600 hover:bg-blue-700 text-white">
-            Coming Soon
+          <Button
+            className="hidden md:inline-flex bg-blue-600 hover:bg-blue-700 text-white"
+            onClick={() => window.location.href = "https://fuoj.tech/"}
+          >
+            Getting Started!
           </Button>
         </div>
       </header>
@@ -162,8 +165,9 @@ export default function EnhancedMobileFriendlyLandingPageComponent() {
                 {item.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
               </motion.button>
             ))}
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full">
-              Coming Soon
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full"
+              onClick={() => window.location.href = "https://fuoj.tech/"}>
+              Getting Started
             </Button>
           </nav>
         </motion.div>
@@ -187,8 +191,9 @@ export default function EnhancedMobileFriendlyLandingPageComponent() {
                     Empowering developers with cutting-edge tools for seamless coding experiences.
                   </p>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
-                      Coming Soon
+                    <Button className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                      onClick={() => window.location.href = "https://fuoj.tech/"}>
+                      Getting Started!
                     </Button>
                   </motion.div>
                 </motion.div>
@@ -280,8 +285,9 @@ export default function EnhancedMobileFriendlyLandingPageComponent() {
               <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to elevate your coding experience?</h2>
               <p className="text-lg md:text-xl mb-8">Join thousands of developers who trust FUOJ for their projects.</p>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button className="w-full sm:w-auto bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
-                  Coming Soon
+                <Button className="w-full sm:w-auto bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                  onClick={() => window.location.href = "https://fuoj.tech/"} >
+                  Getting Started!
                 </Button>
               </motion.div>
             </div>
